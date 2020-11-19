@@ -1,0 +1,109 @@
+<head>
+  <script id="_carbonads_projs" type="text/javascript" src="https://srv.carbonads.net/ads/CKYIK5QM.json?segment=placement:tutorialzinecom&amp;callback=_carbonads_go"></script>
+  <style>
+  button {background-color: #F5CAE3; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight:bold;}
+  
+  </style></head>
+  <body align="center">
+    <div class="videoWrapper">
+      <div style="margin:10px auto;" id="video-placeholder"></div></div>
+<script src="https://www.youtube.com/iframe_api"></script>
+    
+    <span style="display:block">
+      <button type="button" id="anysong" class="next" data-video-id="ZQZlGwsPxlU" >1</button>
+      <button type="button" id="psy" class="next" data-video-id="bSuWLVMvbJM" >2</button>
+      <button type="button" id="killthislove" class="next" data-video-id="MOwaUlXZxkI" >3</button>
+      <button type="button" id="sorry" class="next" data-video-id="AAWqnA8PdcY" >4</button>
+      <button type="button" id="crab" class="next" data-video-id="fzSKVX20nMc" >5</button>
+        <button type="button" id="tt" class="next" data-video-id="9uypQGzzhns" >6</button>
+      <button type="button" id="ddu" class="next" data-video-id="jOJbXvjZ-cQ" >7</button>
+      </span>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script>
+var player;
+
+var section = {start: 0, end: 49};
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('video-placeholder', {
+        width: '1080',
+        height: '720',
+        videoId: 'ZQZlGwsPxlU',
+        playerVars: {
+            color: 'white'
+        },
+        events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+}
+
+function onPlayerReady(event) {
+  player.seekTo(section.start);
+  player.playVideo();
+}
+
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING) {
+    var duration = section.end - section.start;
+    setTimeout(restartVideoSection, duration * 1000);
+  }
+}
+  function restartVideoSection() {
+  player.seekTo(section.start);
+}
+
+$('#anysong').on('click', function () {
+    section.start = 0;
+    section.end = 49;
+});
+
+$('#psy').on('click', function () {
+    section.start = 65;
+    section.end = 96;
+});
+
+$('#killthislove').on('click', function () {
+    section.start = 75;
+    section.end = 94;
+});
+
+$('#sorry').on('click', function () {
+    section.start = 14;
+    section.end = 29;
+});
+
+$('#crab').on('click', function () {
+    section.start = 7;
+    section.end = 35;
+});
+
+$('#tt').on('click', function () {
+    section.start = 60;
+    section.end = 92;
+});
+
+$('#ddu').on('click', function () {
+    section.start = 79;
+    section.end = 95;
+});
+
+
+$('.next').on('click', function () {
+    var url = $(this).attr('data-video-id');
+    player.cueVideoById({videoId:url, 'startSeconds': section.start, 'endSeconds': section.end});
+});
+</script>
+  </body>
+</html>
